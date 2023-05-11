@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing Data...</title>
+    <link rel="stylesheet" href="{% static 'show.css' %}">
+</head>
+<body>
+    <h2 id='head'>Show all Data</h2>
+    <div id='second_div'>
+        <!-- it also work  -->
+        <form action="/home">
+            <button><< Back</button>
+        </form>
+    </div>
+    <div id="first_div">
+        <table class="tab">
+            <thead class="tab">
+                <th class="tab">ID</th>
+                <th class="tab">Language</th>
+                <th class="tab">Founder</th>
+                <th class="tab">Buttons</th>
+            </thead>
+            {% for d in data %}
+            <tr>
+                <td class="tab">{{d.id}}</td>
+                <td class="tab">{{d.data1}}</td>
+                <td class="tab">{{d.data2}}</td>
+                <td>
+                    <a href="/edit?id={{d.id}}">Edit</a>
+                    <a href="/delete?id={{d.id}}">Delete</a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

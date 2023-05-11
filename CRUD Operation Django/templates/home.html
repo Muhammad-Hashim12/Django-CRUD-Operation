@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page....</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    {{msg}}
+    <div id="divtwo">
+    <form action="{% url 'show' %}">
+        <button>Show Records</button>
+    </form>
+    </div>
+    <div id="divone">
+    <form action="{% url 'home'%}" method="post">
+        {% csrf_token %}
+        <h3>ID<input id="id" type="text" required autofocus name="id"></h1>
+        <h3>Data1<input type="text" required name="data1"></h1>
+        <h3>Data2<input type="text" required name="data2"></h1>
+        <button id="btn">submit</button>
+    </form>
+    </div>
+
+</body>
+</html>
